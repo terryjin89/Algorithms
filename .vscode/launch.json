@@ -1,7 +1,41 @@
 {
-    // IntelliSense를 사용하여 가능한 특성에 대해 알아보세요.
-    // 기존 특성에 대한 설명을 보려면 가리킵니다.
-    // 자세한 내용을 보려면 https://go.microsoft.com/fwlink/?linkid=830387을(를) 방문하세요.
+    // launch.json 파일의 스키마 버전을 지정합니다.
     "version": "0.2.0",
-    "configurations": []
+    // 디버그 구성의 목록입니다.
+    "configurations": [
+        {
+            // 디버그 드롭다운 메뉴에 표시될 구성의 이름입니다.
+            "name": "C/C++: g++ build and debug active file",
+            // 사용할 디버거의 유형입니다. 'cppdbg'는 C/C++ 디버거입니다.
+            "type": "cppdbg",
+            // 구성의 요청 유형입니다. 'launch'는 프로그램을 시작하고 디버깅함을 의미합니다.
+            "request": "launch",
+            // 디버깅할 실행 파일의 경로입니다.
+            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            // 프로그램에 전달할 명령줄 인수입니다.
+            "args": [],
+            // true로 설정하면 프로그램 진입점에서 중지합니다.
+            "stopAtEntry": false,
+            // 디버깅 세션의 현재 작업 디렉토리입니다.
+            "cwd": "${workspaceFolder}",
+            // 디버깅할 프로그램에 대한 환경 변수입니다.
+            "environment": [],
+            // true로 설정하면 외부 콘솔 창에서 프로그램을 실행하고, false면 VS Code의 디버그 콘솔에 출력합니다.
+            "externalConsole": false,
+            // 사용할 디버거의 모드입니다. 'gdb'는 GNU 디버거를 의미합니다.
+            "MIMode": "gdb",
+            // gdb 실행 파일의 경로입니다.
+            "miDebuggerPath": "gdb.exe",
+            // 디버거가 시작될 때 실행할 명령어들입니다.
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // 디버깅 세션을 시작하기 전에 실행할 작업의 이름입니다.
+            "preLaunchTask": "C/C++: g++ build active file"
+        }
+    ]
 }
