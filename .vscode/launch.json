@@ -36,6 +36,15 @@
             ],
             // 디버깅 세션을 시작하기 전에 실행할 작업의 이름입니다.
             "preLaunchTask": "C/C++: g++ build active file"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Node.js: Debug Active File",
+            "program": "${file}",
+            "skipFiles": [
+                "<node_internals>/**"
+            ]
         }
     ]
 }
