@@ -7,7 +7,7 @@ class Node:
         self.data = data # The data stored in the node
         self.next = None # Pointer to the next node
 
-# A LinkedList class to manage the linked list operations
+# LinkedList class to manage the linked list operations
 class LinkedList:
 
     # Declare the head of the LinkedList
@@ -17,7 +17,7 @@ class LinkedList:
     
     # Method to add a new node at the end of the linked list
     def append(self, data): # type: ignore
-        new_node = Node(data) # type: ignore # Careate a new node with the given data
+        new_node = Node(data) # type: ignore # Create a new node with the given data
         if not self.head: # If the linked list is empty
             self.head = new_node # Set the new node as the head
         else:
@@ -39,7 +39,7 @@ class LinkedList:
                     self.head = current.next # Move the head to the next node
                 self.size -= 1 # type: ignore # Decrement the size of the linked list
                 return # Exit after deletion
-            previous = current # Move to the next node
+            previous = current # Link to the before node
             current = current.next # Move to the next node
 
     # Find a node with the specified data in the LinkedList

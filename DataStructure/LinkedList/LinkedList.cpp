@@ -43,7 +43,7 @@ class LinkedList {
                 this->size--;
             }
             else {
-                Node* current = this->head;//
+                Node* current = this->head;// From the second node, make sure you have the same data.
                 while(current->next != nullptr && current->next->data != data) { current = current->next; }
                 if(current->next != nullptr) {
                     Node* temp = current->next;
