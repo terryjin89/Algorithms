@@ -33,7 +33,7 @@ class LinkedList {
             this->size++;
         }
 
-        // Method to delete a node with a specific value
+        // Method to delete a node with a specific data
         void remove(int data) {
             if(this->head == nullptr) return;// Make sure head is empty
             if(this->head->data == data) {   // Make sure first Node equal to data
@@ -55,7 +55,7 @@ class LinkedList {
             }
         }
 
-        // Method to find a node with a specific value
+        // Method to find a node with a specific data
         bool find(int data) {
             Node* current = this->head;
             while(current != nullptr) {
@@ -65,10 +65,10 @@ class LinkedList {
             return false;
         }
 
-        // Method to size of the LinkedList
+        // Method to size of the list
         int list_size() {return this->size; }
 
-        // Method to print the LinkedList
+        // Method to print list's data
         void print() {
             Node* current = this->head;
             while(current != nullptr) {

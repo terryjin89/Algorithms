@@ -1,4 +1,3 @@
-console.log("Executing from:", process.cwd());
 // DoubleLinkedList implementation in JavaScript
 
 // This module implements a simple DoubleLinkedList with basic operations

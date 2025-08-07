@@ -1,19 +1,19 @@
 //Linked List Implementation in Java
 
-// LinkedList class to manage the linked list operations
+//This module defines a simple linked list structure with basic operations.
 public class LinkedList {
 
-    //This module defines a simple linked list structure with basic operations.
+    // Declare a Node consisting of data and a pointer to the next node
     private static class Node {
         private final int data;
         private Node next;
 
-    // Declare a Node consisting of data and a pointer to the next node
-    public Node(int data) {
-        this.data = data;
-        this.next = null; // Initialize next as null
+        // Constructor to initialize the Node
+        public Node(int data) {
+            this.data = data;
+            this.next = null; // Initialize next as null
+        }
     }
-}
     private Node head; // Head of the list
     private int size; // Size of the list
 

@@ -1,50 +1,48 @@
 {
-    // launch.json 파일의 스키마 버전을 지정합니다.
+    // launch.json 파일의 스키마 버전을 지정합니다. VS Code가 이 파일의 구조를 이해하는 데 사용됩니다.
     "version": "0.2.0",
-    // 디버그 구성의 목록입니다.
+    // 디버그 구성(configuration) 목록입니다. 'Run and Debug' 뷰에 표시될 다양한 실행 옵션을 정의합니다.
     "configurations": [
         {
-            // 디버그 드롭다운 메뉴에 표시될 구성의 이름입니다.
-            "name": "C/C++: g++ build and debug active file",
-            // 사용할 디버거의 유형입니다. 'cppdbg'는 C/C++ 디버거입니다.
-            "type": "cppdbg",
-            // 구성의 요청 유형입니다. 'launch'는 프로그램을 시작하고 디버깅함을 의미합니다.
-            "request": "launch",
-            // 디버깅할 실행 파일의 경로입니다.
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-            // 프로그램에 전달할 명령줄 인수입니다.
-            "args": [],
-            // true로 설정하면 프로그램 진입점에서 중지합니다.
-            "stopAtEntry": false,
-            // 디버깅 세션의 현재 작업 디렉토리입니다.
-            "cwd": "${workspaceFolder}",
-            // 디버깅할 프로그램에 대한 환경 변수입니다.
-            "environment": [],
-            // true로 설정하면 외부 콘솔 창에서 프로그램을 실행하고, false면 VS Code의 디버그 콘솔에 출력합니다.
-            "externalConsole": false,
-            // 사용할 디버거의 모드입니다. 'gdb'는 GNU 디버거를 의미합니다.
-            "MIMode": "gdb",
-            // gdb 실행 파일의 경로입니다.
-            "miDebuggerPath": "gdb.exe",
-            // 디버거가 시작될 때 실행할 명령어들입니다.
-            "setupCommands": [
-                {
-                    "description": "Enable pretty-printing for gdb",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ],
-            // 디버깅 세션을 시작하기 전에 실행할 작업의 이름입니다.
-            "preLaunchTask": "C/C++: g++ build active file"
+            // Java 파일을 위한 디버그 구성입니다.
+            "type": "java", // 디버거 유형을 'java'로 지정합니다. 'Language Support for Java(TM) by Red Hat' 확장이 필요합니다.
+            "name": "Java: Debug Active File", // 'Run and Debug' 뷰에 표시될 이 구성의 이름입니다.
+            "request": "launch", // 'launch'는 새 프로세스를 시작하여 디버깅함을 의미합니다. 'attach'는 이미 실행 중인 프로세스에 연결합니다.
+            "mainClass": "${file}", // 디버깅할 클래스를 지정합니다. '${file}' 변수는 현재 VS Code에서 활성화된 파일을 의미하며, 확장이 파일 내에서 main 메서드를 자동으로 찾습니다.
+            "projectName": "Algorithms_be156937" // 이 구성이 적용될 Java 프로젝트의 이름입니다.
         },
         {
-            "type": "node",
-            "request": "launch",
-            "name": "Node.js: Debug Active File",
-            "program": "${file}",
-            "skipFiles": [
+            // C/C++ 파일을 위한 디버그 구성입니다.
+            "name": "C/C++: Debug Active File", // 'Run and Debug' 뷰에 표시될 이름입니다.
+            "type": "cppdbg", // 디버거 유형을 'cppdbg'로 지정합니다. 'C/C++' 확장이 필요합니다.
+            "request": "launch", // 새 프로세스를 시작하여 디버깅합니다.
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe", // 실행할 프로그램의 경로입니다. '${fileDirname}'은 현재 파일의 디렉토리, '${fileBasenameNoExtension}'은 확장자를 제외한 파일 이름입니다.
+            "args": [], // 프로그램 실행 시 전달할 인수를 배열 형태로 지정합니다.
+            "stopAtEntry": false, // true로 설정하면 프로그램의 진입점(main 함수 시작)에서 실행을 중지합니다.
+            "cwd": "${workspaceFolder}", // 프로그램의 현재 작업 디렉토리입니다. '${workspaceFolder}'는 프로젝트의 루트 폴더를 의미합니다.
+            "environment": [], // 프로그램에 설정할 환경 변수를 지정합니다.
+            "externalConsole": false, // true로 설정하면 외부 콘솔(새 터미널 창)에서 프로그램을 실행합니다. false는 VS Code의 통합 터미널을 사용합니다.
+            "MIMode": "gdb", // 사용할 디버거 인터페이스를 지정합니다. 'gdb' 또는 'lldb'를 사용할 수 있습니다.
+            "miDebuggerPath": "gdb.exe", // gdb 실행 파일의 경로입니다. 시스템 PATH에 없다면 전체 경로를 지정해야 합니다.
+            "preLaunchTask": "C/C++: g++ build active file" // 디버깅 세션을 시작하기 전에 실행할 작업을 지정합니다. 이 이름은 tasks.json 파일의 작업 'label'과 일치해야 합니다.
+        },
+        {
+            // JavaScript (Node.js) 파일을 위한 디버그 구성입니다.
+            "type": "node", // 디버거 유형을 'node'로 지정합니다. VS Code에 내장된 기능입니다.
+            "request": "launch", // 새 Node.js 프로세스를 시작합니다.
+            "name": "Node.js: Debug Active File", // 'Run and Debug' 뷰에 표시될 이름입니다.
+            "program": "${file}", // 실행할 JavaScript 파일의 경로입니다. '${file}'은 현재 활성화된 파일을 가리킵니다.
+            "skipFiles": [ // 디버깅 시 건너뛸 파일들의 패턴을 지정합니다. Node.js 내부 코드를 건너뛰어 사용자 코드에 집중할 수 있습니다.
                 "<node_internals>/**"
             ]
+        },
+        {
+            // Python 파일을 위한 디버그 구성입니다.
+            "name": "Python: Debug Active File", // 'Run and Debug' 뷰에 표시될 이름입니다.
+            "type": "python", // 디버거 유형을 'python'으로 지정합니다. 'Python' 확장이 필요합니다.
+            "request": "launch", // 새 Python 프로세스를 시작합니다.
+            "program": "${file}", // 실행할 Python 스크립트의 경로입니다.
+            "console": "integratedTerminal" // 프로그램의 출력을 표시할 위치를 지정합니다. 'integratedTerminal'은 VS Code의 통합 터미널을 사용합니다.
         }
     ]
 }
