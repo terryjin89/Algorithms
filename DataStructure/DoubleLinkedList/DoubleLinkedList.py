@@ -1,6 +1,6 @@
 # DoubleLinkedList implementation in Python
 
-# This module implements a simple DoubleLikedList with basic operations.
+# Classes representing each node in the DoubleLinkedList
 class Node:
     # Declare a Node consisting of data and two pointer prevent, next node
     def __init__(self, data) -> None: # type: ignore
