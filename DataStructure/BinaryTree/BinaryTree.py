@@ -55,7 +55,7 @@ class BST:
             elif data > node.data: # if delete data bigger than current data,
                 node.right = _delete(node.right, data) # Move to right node
             else: # if it found the destination to delete(data == node.data)
-                # case 1: leef node
+                # case 1: leaf node
                 if node.left is None and node.right is None:
                     return None
                 # case 2: left child is not exist -> exchange right child
@@ -66,7 +66,7 @@ class BST:
                     return node.left
                 # case 4: both exist 
                 # ->find the minimun data(successor) in the right subtree and replace the current data
-                succ = _findMin(node.right)
+                succ = _findMin(node.right) # The reason 'node.right' is entered as a factor of the function is that it uses the smallest value in the right subtree
                 node.data = succ.data
                 node.right = _delete(node.right, succ.data) # Delete successor from right subtree
             return node # return exchanged current node
