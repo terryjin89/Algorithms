@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 template <typename T>
@@ -62,6 +63,13 @@ class BinaryTree {
             }
             return node;
         }
+
+        Node* _inorder(Node* node, vector<T> res) {
+            if(node == nullptr) return;
+            _inorder(node->left, res);
+            res.push_back(node->data);
+            _inorder(node->right, res);
+        }
     public:
         void insert(T data) {
             this->root = _insert(this->root, data);
@@ -74,5 +82,48 @@ class BinaryTree {
         void remove(T data) {
             this->root = _remove(this->root, data);
         }
-    
+        
+        void inorder() {
+            vector<T> res = new vector<T>();
+            _inorder(this->root,res);
+        }
 };
+
+int main() {
+
+    BinaryTree<int> bst;
+    bst.insert(4);
+    bst.insert(2);
+    bst.insert(7);
+    bst.insert(1);
+    bst.insert(3);
+    bst.insert(5);
+    bst.insert(8);
+    bst.insert(0);
+    bst.insert(6);
+    bst.insert(9);
+
+        cout << "Inorder traversal: "; 
+        cout << bst.inorder() << endl;
+
+        out << "\nDeleting 9 (leaf node)...");
+        bst.delete(9);
+        out << "Inorder traversal: " + bst.inorder());
+
+        out << "\nDeleting 1 (node with one child)...");
+        bst.delete(1);
+        out << "Inorder traversal: " + bst.inorder());
+
+        out << "\nDeleting 7 (node with two children)...");
+        bst.delete(7);
+        out << "Inorder traversal: " + bst.inorder());
+
+        out << "\nDeleting 4 (root node)...");
+        bst.delete(4);
+        out << "Inorder traversal: " + bst.inorder());    
+
+
+
+    return 0;
+}
+
